@@ -1,3 +1,7 @@
+# React-Countdown-Timer
+
+A countdown timer in React with controls to add time, speed up / slow down the countdown, pause and resume.
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
