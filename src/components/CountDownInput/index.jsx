@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 const CountDown = ({ value, buttonText, onChange, onClick, isRunning }) => {
   return (
-    <form className="form-inline" >
+    <form className="form-inline" onSubmit={e => { e.preventDefault(); } }>
       <div className="form-group font-weight-bold" data-testid="app-countdown-input">
         <label htmlFor="countdown-input">CountDown :</label>
         <input className="form-control m-3" id="countdown-input" type="number" value={value} onChange={onChange}/>
@@ -18,6 +18,13 @@ CountDown.propTypes = {
   buttonText: PropTypes.string,
   onChange: PropTypes.func,
   isRunning: PropTypes.bool
+}
+
+CountDown.defaultProps = {
+  value: 0,
+  buttonText: 'start',
+  onChange: () => {},
+  isRunning: false
 }
  
 export default CountDown;

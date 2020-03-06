@@ -9,9 +9,9 @@ test('renders countdown react component', () => {
 });
 
 test('starts the countdown if a correct positive integer is passed', () => {
-  const { getByText } = render(<App />);
+  const { getByText, getByLabelText } = render(<App />);
 
-  fireEvent.change(screen.getByLabelText(/countdown/i), {
+  fireEvent.change(getByLabelText(/countdown/i), {
     target: {value: 2},
   })
   const button = getByText(/start/);
@@ -20,12 +20,27 @@ test('starts the countdown if a correct positive integer is passed', () => {
 })
 
 test('not start the countdown if a correct negative integer is passed', () => {
-  const { getByText } = render(<App />);
+  const { getByText, getByLabelText } = render(<App />);
 
-  fireEvent.change(screen.getByLabelText(/countdown/i), {
+  fireEvent.change(getByLabelText(/countdown/i), {
     target: {value: -1},
   })
-  const button1 = getByText(/start/);
-  fireEvent.click(getByText('start'));
-  expect(button1).not.toHaveTextContent('stop')
+  const button = getByText(/start/);
+  fireEvent.click(button);
+  expect(button).not.toHaveTextContent('stop')
+})
+
+test('stops the countdown when the pause button is clicked', async () => {
+  const { getByText, getByLabelText, getByRole } = render(<App />);
+
+  fireEvent.change(getByLabelText(/countdown/i), {
+    target: {value: 2},
+  })
+  const button = getByText(/start/);
+  fireEvent.click(button);
+  const pause = getByRole(/stopCount/);
+  fireEvent.click(pause);
+
+  const stopped = getByRole('startCount');
+  expect(stopped).toBeInTheDocument();
 })

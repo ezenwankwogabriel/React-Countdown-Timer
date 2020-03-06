@@ -24,8 +24,6 @@ class App extends Component {
     shouldBlink: false
   };
 
-  componentDidMount() {}
-
   handleInputChange(value) {
     this.setState(state => ({
       ...state,
@@ -36,7 +34,7 @@ class App extends Component {
 
   handleStopButtonClick = () => {
     const { isRunning, value } = this.state;
-    if (value >>> 0 !== parseFloat(value) || value === 0) return;
+    if (value <= 0 || value >>> 0 !== parseFloat(value)) return;
     if (isRunning) {
       clearInterval(this.intervalId);
       this.resetState();

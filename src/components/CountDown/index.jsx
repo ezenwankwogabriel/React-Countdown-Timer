@@ -9,7 +9,7 @@ const CountDown = ({minute, seconds, onPauseClick, countDownColor, shouldBlink, 
       <p className="countdown-content" >
         <span className={shouldBlink ? 'blinking': ''} style = {{ color: countDownColor }}> {minute}:{seconds} </span>  
         <span className="countdown-icon">
-          {isRunning ? <FaRegPauseCircle onClick={onPauseClick} /> : <FaRegPlayCircle onClick={onPauseClick} />}
+          {isRunning ? <FaRegPauseCircle role="stopCount" onClick={onPauseClick} /> : <FaRegPlayCircle role="startCount" onClick={onPauseClick} />}
         </span>
       </p>
     </div>
@@ -21,5 +21,12 @@ CountDown.propTypes = {
   seconds: PropTypes.string,
   countDownColor: PropTypes.string,
   shouldBlink: PropTypes.bool,
+}
+
+CountDown.defaultProps = {
+  minute: '00',
+  seconds: '00',
+  countDownColor: '#fff',
+  shouldBlink: false,
 }
 export default CountDown;
