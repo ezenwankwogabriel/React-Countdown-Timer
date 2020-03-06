@@ -2,12 +2,20 @@
 
 A countdown timer in React with controls to add time, speed up / slow down the countdown, pause and resume.
 
+# Application ScreenShots
+Before countdown is started
 ![Alt text](./src/images/screenshots/shot-beforestart.png?raw=true "Before countdown is started")
+Countdown started
 ![Alt text](./src/images/screenshots/shot-started.png?raw=true "Countdown started")
+Timer paused
 ![Alt text](./src/images/screenshots/shot-paused.png?raw=true "Timer paused")
+Timer reaches half count
 ![Alt text](./src/images/screenshots/shot-halftime.png?raw=true "Timer reaches half count")
-![Alt text](./src/images/screenshots/shot-blinking.png?raw=true "Blinking countdown when timer is less than 10seconds")
+Timer changes to red when less than 20seconds
 ![Alt text](./src/images/screenshots/shot-lessthan-20sec.png?raw=true "Timer changes to red when less than 20seconds")
+Blinking countdown when timer is less than 10seconds
+![Alt text](./src/images/screenshots/shot-blinking.png?raw=true "Blinking countdown when timer is less than 10seconds")
+Countdown ended
 ![Alt text](./src/images/screenshots/shot-ended.png?raw=true "Countdown ended")
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
